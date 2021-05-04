@@ -15,6 +15,10 @@ class CreatePhonebooksTable extends Migration
     {
         Schema::create('phonebooks', function (Blueprint $table) {
             $table->bigIncrements('id');
+ //index привязывает поле name к id (если нужен уникальный индекс то ставим ->unique)
+            $table->string('name')->index();
+            $table->string('email');
+            $table->string('phone');
             $table->timestamps();
         });
     }

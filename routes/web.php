@@ -16,11 +16,8 @@
 });
 */
 
-Route::get("/", function () {
-    $test = "Hi";
-    // при помощи метода compact мы можем отображать данные других переменных (test использовать без знака доллара) во views
-    return view('home', compact('test'));
-});
+Route::get("/", 'MainController@index')->name('home');
+
 
 Route::get("/about", function (){
     return "About Page";
