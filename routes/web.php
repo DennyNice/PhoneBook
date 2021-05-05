@@ -17,6 +17,7 @@
 */
 
 Route::get("/", 'MainController@index')->name('home');
+Route::get('/search','MainController@search')->name('search');
 
 
 Route::get("/about", function (){

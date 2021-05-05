@@ -14,20 +14,22 @@
                 </thead>
                 <tbody>
                 @foreach($users as $user)
-                <tr>
-                    <th scope="row">{{$user->id}}</th>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}}</td>
-                    <td>{{$user->phone}}}</td>
-                </tr>
+                    <tr>
+                        <th scope="row">{{$user->id}}</th>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}}</td>
+                        <td>{{$user->phone}}}</td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
 
         </div><!-- ./table-responsive-->
-        <!-- Отображения Пагинации-->
 
-{{$users->links()}}
+        <!-- Отображения Пагинации-->
+        {{$users->appends(['s' => request()->s])->links()}}
+    @else
+        <p> No records found...</p>
 
     @endif
 @endsection
